@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for ad in ads %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ ad.user.profile.image.url }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                <p>{{ ad.title }}</p>
+                <hr />
+                <p>{{ ad.user.profile.phone }}</p>
+                <ul>
+                {% for j in ad.categories.all %}
+                    <li><small class="text-muted">{{ j.name }}</small></li>
+                {% endfor %}
+                </ul>
+                </div>
+                
+                <p class="article-content">{{ ad.description }}</p>
+            </div>
+        </article>
+    {% endfor %}
+
+{% endblock content %}
+
+
+
+
+
+
