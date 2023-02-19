@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for profile in profiles %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ profile.image.url }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+                <hr />
+                <p>{{ profile.phone }}</p>
+                <small class="text-muted"> {{ profile.category.name }} </small>
+                </div>
+                
+                <p class="article-content">{{ profile.description }}</p>
+            </div>
+        </article>
+    {% endfor %}
+
+{% endblock content %}
+
+
